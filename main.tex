@@ -74,11 +74,19 @@ and references or bibliography.\par
 \clearpage
 \pagenumbering{arabic}
 
+% Chapter headings are written here, so that the outline (Overleaf: File outline) lists every chapter;
+% the text of each chapter is in its own file.
+\chapter{Introduction}\label{ch:introduction}
 \input{chapters/01_introduction}
+\chapter{Literature review}\label{ch:literature}
 \input{chapters/02_literature}
+\chapter{Methods}\label{ch:methods}
 \input{chapters/03_methods}
+\chapter{Results}\label{ch:results}
 \input{chapters/04_results}
+\chapter{Discussion}\label{ch:discussion}
 \input{chapters/05_discussion}
+\chapter{Conclusions}\label{ch:conclusions}
 \input{chapters/06_conclusions}
 
 \appendix

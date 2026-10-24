@@ -108,7 +108,8 @@ LaTeX, where the numbering is automatic.
 ## Write
 
 1. Fill in `thesis-info.tex`: title, name, faculty, degree, and the month and year of submission.
-2. Write the chapters in `chapters/`. Add or rename chapters in `main.tex`.
+2. Write each chapter in its file in `chapters/`. The chapter headings themselves are in `main.tex` (so the outline
+   lists every chapter): add, rename or reorder chapters there.
 3. Put figures in `figures/`. Use PDF for the PDF build, plus a PNG of the same name for Word.
    `figures/make_example.py` shows how to save a matplotlib figure in both formats. Give figures distinctive names:
    a bare name such as `example` can match a file of the same name inside your TeX installation.
