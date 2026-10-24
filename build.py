@@ -1,7 +1,7 @@
 """Build the thesis as PDF and, optionally, as Word.
 
     python build.py            PDF (pdflatex, BibTeX, makeglossaries, pdflatex twice) -> main.pdf
-    python build.py --docx     also Thesis.docx (needs pandoc and: pip install git+https://github.com/AhmadAmmar/research-helpers)
+    python build.py --docx     also Thesis.docx (needs pandoc and: pip install git+https://github.com/GeospatialGeeks/research-helpers)
 
 The Word version keeps the chapter, section, table and figure numbers and the cross-references of the PDF, uses the
 Ulster Harvard style (ulster-harvard-lhs.csl) and the Ulster page set-up (A4, binding margin 40 mm, Arial 12 pt, 1.5
@@ -37,7 +37,7 @@ def docx():
     try:
         from research_helpers.latex2docx import convert, PageSetup
     except ImportError:
-        sys.exit("install research-helpers for the Word version: pip install git+https://github.com/AhmadAmmar/research-helpers")
+        sys.exit("install research-helpers for the Word version: pip install git+https://github.com/GeospatialGeeks/research-helpers")
     front = (f"\\textbf{{{info('ThesisTitle')}}}\n\n{info('ThesisAuthor')}\n\n{info('ThesisFaculty')} of Ulster University\n\n"
              f"Thesis submitted for the degree of {info('ThesisDegree')}\n\n{info('SubmissionMonthYear')}\n\n"
              "I confirm that the word count of this thesis is less than 100,000 words excluding the title page, contents, "

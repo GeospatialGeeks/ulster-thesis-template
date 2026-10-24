@@ -39,7 +39,7 @@ Hyperlinks for cross-references, citations and URLs are on, in dark colours that
 
 **Your computer** (TeX Live or MiKTeX, with Python 3 for the build script)
 ```bash
-git clone https://github.com/AhmadAmmar/ulster-thesis-template my-thesis
+git clone https://github.com/GeospatialGeeks/ulster-thesis-template my-thesis
 cd my-thesis
 python build.py              # main.pdf
 python build.py --docx       # also Thesis.docx (needs pandoc and research-helpers, see below)
@@ -48,7 +48,7 @@ You can also use `latexmk -pdf main.tex`.
 
 **Word version.** Install [pandoc](https://pandoc.org/installing.html) and the converter:
 ```bash
-pip install git+https://github.com/AhmadAmmar/research-helpers
+pip install git+https://github.com/GeospatialGeeks/research-helpers
 ```
 `python build.py --docx` then writes `Thesis.docx`, keeping:
 - the numbers of chapters, sections, tables and figures, and the cross-references as links;
