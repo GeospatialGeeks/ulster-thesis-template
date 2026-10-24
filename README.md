@@ -150,6 +150,10 @@ Delete them before inserting citations with Zotero: a Word document should take 
 - Ulster University Doctoral College, [Guidance on the use of generative AI tools](https://www.ulster.ac.uk/doctoralcollege/current/research-studies-guide/guidance-on-the-use-of-generative-ai-tools).
 - Ulster University Library, Harvard referencing guides.
 
+## Ownership and funding
+
+Copyright © Ulster University: developed by Ammar Ahmad during a PhD at Ulster University, funded by a Vice-Chancellor's Research Scholarship (VCRS); intellectual property arising from research degrees belongs to the University under its Intellectual Property Policy. Released under the MIT licence.
+
 ## Licence and contributions
 
 MIT licence (see `LICENSE`): use, adapt and share freely. Corrections and improvements are welcome as issues or pull
