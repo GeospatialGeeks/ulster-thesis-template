@@ -2,12 +2,14 @@
 
     python build.py            PDF (pdflatex, BibTeX, makeglossaries, pdflatex twice) -> main.pdf
     python build.py --docx     also Thesis.docx (needs pandoc and: pip install git+https://github.com/GeospatialGeeks/research-helpers)
+    python build.py --docx --downloads   also copies both to downloads/ (the ready-made files offered in the README)
 
 The Word version keeps the chapter, section, table and figure numbers and the cross-references of the PDF, uses the
 Ulster Harvard style (ulster-harvard-lhs.csl) and the Ulster page set-up (A4, binding margin 40 mm, Arial 12 pt, 1.5
-line spacing). Figures need a PNG beside each PDF figure (Word cannot embed PDF).
+line spacing), with the title page, roman page numbers for the preliminary pages, contents and lists as Word fields.
+A figure that exists only as PDF is converted to PNG for Word automatically.
 """
-import pathlib, re, subprocess, sys
+import pathlib, re, shutil, subprocess, sys
 
 HERE = pathlib.Path(__file__).resolve().parent
 
@@ -30,12 +32,12 @@ def pdf():
 def info(key):
     t = (HERE / "thesis-info.tex").read_text(encoding="utf-8")
     m = re.search(r"\\newcommand\{\\" + key + r"\}\{(.*?)\}\s*$", t, re.M)
-    return m.group(1).replace("\\\\", " ") if m else ""
+    return m.group(1) if m else ""
 
 
 def docx():
     try:
-        from research_helpers.latex2docx import convert, PageSetup
+        from research_helpers.latex2docx import convert, PageSetup, TitlePage
     except ImportError:
         sys.exit("install research-helpers for the Word version: pip install git+https://github.com/GeospatialGeeks/research-helpers")
     front = (f"\\textbf{{{info('ThesisTitle')}}}\n\n{info('ThesisAuthor')}\n\n{info('ThesisFaculty')} of Ulster University\n\n"
@@ -43,8 +45,11 @@ def docx():
              "I confirm that the word count of this thesis is less than 100,000 words excluding the title page, contents, "
              "acknowledgements, summary or abstract, abbreviations, footnotes, diagrams, maps, illustrations, tables, appendices, "
              "and references or bibliography.\n\n")
+    # title page as in main.tex: title (Large, bold), 2 cm, name (large), 1.5 cm, faculty, 1 cm, degree, 1 cm, date;
+    # the word-count statement at the foot of the page; no page number on it
     code = convert(HERE / "main.tex", HERE / "Thesis.docx", csl=HERE / "ulster-harvard-lhs.csl", front_matter=front,
-                   page=PageSetup(left_mm=40, right_mm=25, top_mm=25, bottom_mm=25, font="Arial", size_pt=12, line_spacing=1.5))
+                   page=PageSetup(left_mm=40, right_mm=25, top_mm=25, bottom_mm=25, font="Arial", size_pt=12, line_spacing=1.5),
+                   title_page=TitlePage(sizes_pt=(17.28, 14.4), gaps_mm=(0, 20, 15, 10, 10), bottom=1))
     print("Word:", "Thesis.docx" if code == 0 else f"failed ({code})")
 
 
@@ -52,3 +57,9 @@ if __name__ == "__main__":
     pdf()
     if "--docx" in sys.argv:
         docx()
+    if "--downloads" in sys.argv:
+        (HERE / "downloads").mkdir(exist_ok=True)
+        for src, name in (("main.pdf", "Ulster-thesis-template.pdf"), ("Thesis.docx", "Ulster-thesis-template.docx")):
+            if (HERE / src).exists():
+                shutil.copy2(HERE / src, HERE / "downloads" / name)
+                print("downloads/" + name)

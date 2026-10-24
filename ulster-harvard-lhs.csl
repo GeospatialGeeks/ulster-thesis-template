@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" default-locale="en-US">
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" default-locale="en-GB">
   <info>
     <!-- Adapted from the Elsevier Harvard style used for the review manuscript: citations (Author Year) without a comma,
          reference list Author (Year) Title. As in the Ulster Library Harvard LHS guide. -->
-    <title>Ulster University Harvard (LHS), adapted for the thesis</title>
-    <id>ulster-harvard-lhs-thesis</id>
-    <link href="http://www.zotero.org/styles/elsevier-harvard" rel="self"/>
+    <title>Ulster University Harvard (LHS), unofficial</title>
+    <id>https://github.com/GeospatialGeeks/ulster-thesis-template/ulster-harvard-lhs</id>
+    <link href="https://github.com/GeospatialGeeks/ulster-thesis-template/ulster-harvard-lhs" rel="self"/>
+    <link href="http://www.zotero.org/styles/elsevier-harvard" rel="template"/>
     <link href="http://www.zotero.org/styles/ecology-letters" rel="template"/>
     <link href="http://www.elsevier.com/journals/biological-conservation/0006-3207/guide-for-authors#68000" rel="documentation"/>
     <author>
