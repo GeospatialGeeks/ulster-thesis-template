@@ -5,8 +5,11 @@ to the Doctoral College's *Format of Thesis* guidance, with:
 
 - a PDF that follows the required layout;
 - a Word version built from the same source, for supervisors who review in Word;
-- ready-made blank files, if you prefer to start in Word: [PDF](downloads/Ulster-thesis-template.pdf) and
-  [Word](downloads/Ulster-thesis-template.docx), with every section in place and guidance text to replace.
+- ready-made downloads, with every section in place and guidance text to replace:
+  - **[Overleaf / LaTeX ZIP](https://github.com/GeospatialGeeks/ulster-thesis-template/raw/main/downloads/Ulster-thesis-template-Overleaf.zip)**:
+    upload it to Overleaf as a new project, or unzip it for any LaTeX editor;
+  - [Word](https://github.com/GeospatialGeeks/ulster-thesis-template/raw/main/downloads/Ulster-thesis-template.docx)
+    and [PDF](downloads/Ulster-thesis-template.pdf), if you prefer to start in Word or want to see the result first.
 
 It is not endorsed by Ulster University. Always check the current guidance and your faculty's requirements before
 submission (links below).
@@ -63,9 +66,11 @@ Hyperlinks for cross-references, citations and URLs are on, in dark colours that
 ## Use it
 
 **Overleaf**
-1. Download this repository as a ZIP (green *Code* button, then *Download ZIP*, or from *Releases*).
+1. Download [Ulster-thesis-template-Overleaf.zip](https://github.com/GeospatialGeeks/ulster-thesis-template/raw/main/downloads/Ulster-thesis-template-Overleaf.zip)
+   (the LaTeX source only, nothing else to remove).
 2. In Overleaf, choose *New Project*, then *Upload Project*, and select the ZIP.
 3. Set the compiler to pdfLaTeX (*Menu*, then *Settings*). The included `latexmkrc` builds the list of abbreviations.
+4. Fill in `thesis-info.tex` and start writing in `chapters/`.
 
 **Your computer** (TeX Live or MiKTeX, with Python 3 for the build script)
 ```bash

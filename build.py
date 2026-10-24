@@ -53,6 +53,23 @@ def docx():
     print("Word:", "Thesis.docx" if code == 0 else f"failed ({code})")
 
 
+def overleaf_zip():
+    """downloads/Ulster-thesis-template-Overleaf.zip: the LaTeX source only, files at the top level, ready for Overleaf
+    (New Project, Upload Project) or any LaTeX editor. Fixed timestamps, so an unchanged source gives an identical zip."""
+    import zipfile
+    files = ["main.tex", "thesis-info.tex", "references.bib", "ulster-harvard-lhs.csl", "latexmkrc", "build.py",
+             "README.md", "LICENSE"]
+    files += sorted(str(p.relative_to(HERE)).replace("\\", "/") for d in ("chapters", "figures") for p in (HERE / d).iterdir()
+                    if p.is_file())
+    out = HERE / "downloads" / "Ulster-thesis-template-Overleaf.zip"
+    with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
+        for f in files:
+            info = zipfile.ZipInfo(f, date_time=(2026, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            z.writestr(info, (HERE / f).read_bytes())
+    print("downloads/" + out.name, f"({len(files)} files)")
+
+
 if __name__ == "__main__":
     pdf()
     if "--docx" in sys.argv:
@@ -63,3 +80,4 @@ if __name__ == "__main__":
             if (HERE / src).exists():
                 shutil.copy2(HERE / src, HERE / "downloads" / name)
                 print("downloads/" + name)
+        overleaf_zip()
