@@ -1,0 +1,96 @@
+\documentclass[12pt,a4paper,oneside]{report}
+% =================================================================================================================
+% Ulster University research degree thesis: unofficial LaTeX template.
+% Layout follows the Doctoral College "Format of Thesis" guidance and the "Guidance for printing of theses for
+% research degrees" (check the current versions before submission; links in README.md):
+%   A4 portrait; sans-serif font (Helvetica or Arial) 12 pt; line spacing 1.5; an additional line space after each
+%   paragraph; page numbers in the top outer corner, roman for the preliminary pages; binding margin at least 40 mm,
+%   other margins at least 20 mm; title page with title, author, faculty, degree, month and year and the word-count
+%   statement; abstract of at most 300 words; contents with lists of figures and tables; abbreviations;
+%   acknowledgements; captions below figures and titles above tables; UK English; Harvard referencing.
+% =================================================================================================================
+\usepackage[british]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=1]{helvet}\renewcommand{\familydefault}{\sfdefault}      % Helvetica (sans-serif)
+\usepackage[left=40mm,right=25mm,top=25mm,bottom=25mm,headheight=15pt]{geometry}   % binding margin 40 mm
+\usepackage{setspace}\onehalfspacing                                          % 1.5 line spacing
+\usepackage[parfill]{parskip}                                                 % space after each paragraph
+\usepackage{fancyhdr}                                                          % page number top outer corner
+\pagestyle{fancy}\fancyhf{}\fancyhead[R]{\thepage}\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyhead[R]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs,tabularx,longtable,array,multirow}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[section]{placeins}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[round,authoryear]{natbib}
+\bibpunct{(}{)}{;}{a}{}{,}                                                    % Harvard: (Author Year), no comma
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks=true,linkcolor={blue!45!black},citecolor={blue!45!black},urlcolor={blue!70!black},bookmarksnumbered=true}
+\usepackage[capitalise,noabbrev]{cleveref}
+\usepackage[acronym,nonumberlist,toc]{glossaries}\makeglossaries
+
+\graphicspath{{figures/}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\input{thesis-info}
+\input{chapters/00_abbreviations}
+\glsaddall                                                                    % list every abbreviation defined
+
+\begin{document}
+\pagenumbering{roman}
+\begin{titlepage}
+\centering\onehalfspacing
+{\Large\bfseries \ThesisTitle\par}
+\vspace{2cm}
+{\large \ThesisAuthor\par}
+\vspace{1.5cm}
+\ThesisFaculty{} of Ulster University\par
+\vspace{1cm}
+Thesis submitted for the degree of \ThesisDegree\par
+\vspace{1cm}
+\SubmissionMonthYear\par
+\vfill
+I confirm that the word count of this thesis is less than 100,000 words excluding the title page, contents,
+acknowledgements, summary or abstract, abbreviations, footnotes, diagrams, maps, illustrations, tables, appendices,
+and references or bibliography.\par
+\end{titlepage}
+
+\chapter*{Abstract}\addcontentsline{toc}{chapter}{Abstract}
+\input{chapters/00_abstract}
+\tableofcontents
+\listoffigures
+\listoftables
+\printglossary[type=\acronymtype,title=Abbreviations]
+\chapter*{Acknowledgements}\addcontentsline{toc}{chapter}{Acknowledgements}
+\input{chapters/00_acknowledgements}
+\chapter*{Declaration on the use of generative artificial intelligence}\label{ch:ai-declaration}
+\addcontentsline{toc}{chapter}{Declaration on the use of generative artificial intelligence}
+\input{chapters/00_declaration_ai}
+\clearpage
+\pagenumbering{arabic}
+
+\input{chapters/01_introduction}
+\input{chapters/02_literature}
+\input{chapters/03_methods}
+\input{chapters/04_results}
+\input{chapters/05_discussion}
+\input{chapters/06_conclusions}
+
+\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{\bibname}
+\bibliographystyle{agsm}
+\bibliography{references}
+
+\appendix
+\chapter{Supplementary material}\crefalias{chapter}{appendix}\label{app:supplement}
+\input{chapters/A1_appendix}
+
+% Ulster order: main text, appendices, then references
+\bibliographystyle{agsm}
+\bibliography{references}
+
+\end{document}
