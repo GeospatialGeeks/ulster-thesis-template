@@ -9,6 +9,23 @@ to the Doctoral College's *Format of Thesis* guidance, with:
 It is not endorsed by Ulster University. Always check the current guidance and your faculty's requirements before
 submission (links below).
 
+## What you get
+
+The same source gives both versions. Title page, contents, a chapter opening, a results page with a table and a
+figure, and the references:
+
+**PDF** (`main.pdf`)
+
+![PDF pages: title page, contents, chapter opening, results with table and figure, references](docs/screenshots/pdf-pages.png)
+
+**Word** (`Thesis.docx`)
+
+![Word pages: the same five pages from the Word version](docs/screenshots/word-pages.png)
+
+Both use the same numbering for chapters, sections, tables, figures and equations. Both have working links for
+cross-references, citations and the reference list, and the same Harvard references. The Word version has real Word
+headings (shown in the navigation pane), and its contents and lists of figures and tables are Word fields.
+
 ## What is set up for you
 
 | Requirement (Doctoral College guidance) | How the template implements it |
@@ -55,13 +72,17 @@ pip install git+https://github.com/GeospatialGeeks/research-helpers
 - citations in the Harvard style of `ulster-harvard-lhs.csl`;
 - the Ulster page set-up.
 
-Figures need a PNG next to each PDF figure (Word cannot embed PDF).
+Figures need a PNG next to each PDF figure (Word cannot embed PDF). When Word opens the file, it asks whether to
+update the fields: choose *Yes* to fill in the contents and the lists of figures and tables. In the Word version, page
+numbers are arabic throughout.
 
 ## Write
 
 1. Fill in `thesis-info.tex`: title, name, faculty, degree, and the month and year of submission.
 2. Write the chapters in `chapters/`. Add or rename chapters in `main.tex`.
 3. Put figures in `figures/`. Use PDF for the PDF build, plus a PNG of the same name for Word.
+   `figures/make_example.py` shows how to save a matplotlib figure in both formats. Give figures distinctive names:
+   a bare name such as `example` can match a file of the same name inside your TeX installation.
 4. Add references to `references.bib`. For example, export from Zotero with Better BibTeX, or get BibTeX for a DOI with
    `rh bib refs.bib key=DOI` (research-helpers), which also checks the DOI against Crossref.
 5. Cite with `\citep{key}` for "(Author Year)" and `\citet{key}` for "Author (Year)". Cross-reference with
