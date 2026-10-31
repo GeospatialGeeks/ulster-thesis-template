@@ -158,11 +158,11 @@ Delete them before inserting citations with Zotero: a Word document should take 
 
 ## Ownership and funding
 
-Copyright © Ulster University: developed by Ammar Ahmad during a PhD at Ulster University, funded by a Vice-Chancellor's Research Scholarship (VCRS); intellectual property arising from research degrees belongs to the University under its Intellectual Property Policy. Released under the MIT licence.
+Copyright © Ulster University: developed by Ahmad Ammar during a PhD at Ulster University, funded by a Vice-Chancellor's Research Scholarship (VCRS); intellectual property arising from research degrees belongs to the University under its Intellectual Property Policy. Released under the MIT licence.
 
 ## Licence and contributions
 
 MIT licence (see `LICENSE`): use, adapt and share freely. Corrections and improvements are welcome as issues or pull
 requests, especially where the guidance changes.
 
-Maintained by Ammar Ahmad (School of Geography and Environmental Sciences, Ulster University).
+Maintained by Ahmad Ammar (School of Geography and Environmental Sciences, Ulster University).
