@@ -150,6 +150,13 @@ Delete them before inserting citations with Zotero: a Word document should take 
 
 ## Sources
 
+The rules this template implements come from these official Ulster University pages:
+
+- [Format of Thesis](https://www.ulster.ac.uk/doctoralcollege/current/submitting-your-thesis/notesofguidance), Doctoral College: title page order, word-count statement, layout, abstract length.
+- [PhD Regulations](https://www.ulster.ac.uk/doctoralcollege/current/research-studies-guide/regulatory/phd-regulations): word limit.
+
+The optional School line and any logo are not requirements of these pages. The template is unofficial, so check them before you submit.
+
 - Ulster University Doctoral College, [Format of Thesis](https://www.ulster.ac.uk/doctoralcollege/current/submitting-your-thesis/thesis-format)
   and [Notes of guidance](https://www.ulster.ac.uk/doctoralcollege/current/submitting-your-thesis/notesofguidance).
 - Ulster University Doctoral College, *Guidance for printing of theses for research degrees*.
